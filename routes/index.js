@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var sha1 = require('sha1');
+var sign = require('../utils/sign')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -22,5 +23,12 @@ router.get('/auth', function(req, res) {
         res.send('auth error')
     }
 });
+
+router.get('/jsapi', async function(req, res){
+    let url = decodeURIComponent(req.query.url)
+    let conf = await sign(url)
+    console.log('conf', conf)
+    res.send(conf)
+})
 
 module.exports = router;

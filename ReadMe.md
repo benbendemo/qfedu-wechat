@@ -72,7 +72,8 @@ http://qfeduwechat.applinzi.com
 > 配置项如下：
 ```
 wx.config({
-  debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+  debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，
+  若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
   appId: '', // 必填，公众号的唯一标识
   timestamp: , // 必填，生成签名的时间戳
   nonceStr: '', // 必填，生成签名的随机串
@@ -83,5 +84,15 @@ wx.config({
 
 ### 步骤四：进行服务器配置
 > 进入“开发”->“基本配置”->“服务器配置”页面，启用SAE服务器
+> 上述步骤配置好之后，点击“提交”，微信公众号即向SAE服务器发起一次http请求，SAE服务器里
+> 根据要求使用sha1算法生成签名字符串，与http请求提交上传的signature进行比较，如果一致，说明
+> 校验通过，直接下发http请求提交上传的echostr参数；如果不一致，说明校验失败
+
 安装sha1模块，计算sha1签名结果
 `npm i sha1`
+
+### 步骤五：
+> https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET
+> AppID: xxxxxxxx
+> AppSecret: xxxxxxx
+`npm i axios`
