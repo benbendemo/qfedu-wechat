@@ -28,6 +28,8 @@
 `npm i mongoose`
 
 3. 使用mongoose.connect()连接数据库
+127.0.0.1:27017
+139.196.12.5:27017
 
 4. 使用mongoose.Schema和mongoose.model创建数据模型对象
 
