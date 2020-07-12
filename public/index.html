@@ -39,6 +39,7 @@
                 let url = encodeURIComponent(location.href.split('#')[0])
                 // axios.get(`http://qfeduwechat.applinzi.com/jsapi?url=${url}`).then((result)=>{
                 axios.get(`http://139.196.12.5:27017/jsapi?url=${url}`).then((result)=>{
+                // axios.get(`http://127.0.0.1:27017/jsapi?url=${url}`).then((result)=>{
                     let {appId, timestamp, nonceStr, signature} = result.data
                     wx.config({
                         debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，
